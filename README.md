@@ -1,3 +1,1 @@
 # learning-tyescript
-
-# Hellloooo
