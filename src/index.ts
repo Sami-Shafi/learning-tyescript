@@ -31,3 +31,73 @@ enum DirectionEnum {
 // console.log(DirectionEnum);
 
 // Objects
+// 1. direct method
+// const gamer: {
+// 	gamerId: number;
+// 	name: string;
+// 	category: string;
+// 	eliteLevel: boolean;
+// } = {
+// 	gamerId: 74,
+// 	name: "sami",
+// 	category: "action",
+// 	eliteLevel: true,
+// };
+
+// 2. using type (I like this one)
+type Gamer = {
+	gamerId: number;
+	name: string;
+	category: string;
+	eliteLevel: boolean;
+};
+
+const sami: Gamer = {
+	gamerId: 74,
+	name: "sami",
+	category: "action",
+	eliteLevel: true,
+};
+
+// Type assertions (I like to call it override)
+let userId: any = 2;
+let gamerId = userId as string;
+// (this will throw error)
+// gamerId = 12;
+//  (this will work)
+// gamerId = "sami74"
+
+// functions
+// ! If the return value is unknown, then we use 'void'
+function personalInfo(name: string, age: number): string {
+	return `${name} is ${age} years old`;
+}
+// testing
+// console.log(personalInfo("sami", 17));
+// console.log(personalInfo("sami", "17"));
+
+// Interfaces
+
+// a citizen inteface
+interface Citizen {
+	name: string;
+	age: number;
+	job: string;
+	skills?: Array<string>;
+}
+
+const jack: Citizen = {
+	name: "sami",
+	age: 20,
+	job: "student",
+	skills: ["programming", "gaming", "singing"],
+};
+
+// an interface to validate function parameter types
+interface arithmeticOperation {
+	(x: number, y: number): number;
+}
+
+// * this will throw error as in the interface we are saying that
+// * the return should be number but in the function we are giving void
+// const sum: arithmeticOperation = (x: number, y: number): void => x + y;
