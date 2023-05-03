@@ -101,3 +101,26 @@ interface arithmeticOperation {
 // * this will throw error as in the interface we are saying that
 // * the return should be number but in the function we are giving void
 // const sum: arithmeticOperation = (x: number, y: number): void => x + y;
+
+class Student {
+	id: number;
+	name: string;
+	private phoneNumber: string;
+
+	constructor(id: number, name: string, phoneNumber: string) {
+		this.id = id;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+	}
+}
+
+const rahat = new Student(14, "Rahat", "01707696956");
+// this will throw error as its private
+// console.log(rahat.phoneNumber);
+
+// Generics
+const getItemsArray = <Type>(items: Type[]): Type[] => {
+	return new Array().concat(items);
+};
+let numArray = getItemsArray<number>([1, 2, 3, 4]);
+let strArray = getItemsArray<string>(["sami", "salman", "jerin"]);
